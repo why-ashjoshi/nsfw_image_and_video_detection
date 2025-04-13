@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video NSFW Detection Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Video NSFW Detection Result</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frame Number</th>
+                    <th>NSFW Score</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for frame_number, nsfw_score, is_nsfw in results %}
+                <tr>
+                    <td>{{ frame_number }}</td>
+                    <td>{{ nsfw_score }}</td>
+                    <td>{{ 'NSFW' if is_nsfw else 'Safe' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/">Upload another video</a>
+    </div>
+</body>
+</html>

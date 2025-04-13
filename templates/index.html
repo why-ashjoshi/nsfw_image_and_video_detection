@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSFW Content Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload an Image or Video for NSFW Detection</h1>
+        <form action="/upload_image" method="post" enctype="multipart/form-data">
+            <label for="file">Upload Image:</label>
+            <input type="file" name="file" id="file" accept="image/*" required>
+            <button type="submit">Detect NSFW</button>
+        </form>
+
+        <form action="/upload_video" method="post" enctype="multipart/form-data">
+            <label for="file">Upload Video:</label>
+            <input type="file" name="file" id="file" accept="video/*" required>
+            <button type="submit">Detect NSFW in Video</button>
+        </form>
+    </div>
+</body>
+</html>
